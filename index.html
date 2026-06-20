@@ -1,0 +1,427 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ex-Factor �?Lauryn Hill</title>
+<meta property="og:title" content="Ex-Factor �� Lauryn Hill">
+<meta property="og:description" content="It could all be so simple / But you'd rather make it hard / Loving you is like a battle / And we both end up with scars">
+<meta property="og:image" content="og-image.jpg">
+<meta property="og:type" content="music.song">
+<meta property="og:site_name" content="Ex-Factor">
+<meta property="og:locale" content="zh_CN">
+<meta name="referrer" content="no-referrer">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --ink: #2b1b0e;
+    --paper: #faf6f0;
+    --warm-cream: #f5ede0;
+    --amber: #c8863c;
+    --amber-dim: #a66d2e;
+    --rose: #c25a4a;
+    --dust: #8c7664;
+    --golden: #d4a853;
+    --border: rgba(44, 28, 14, 0.12);
+  }
+
+  body {
+    font-family: Georgia, "Noto Serif SC", "Songti SC", serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background-image:
+      radial-gradient(ellipse at 25% 20%, rgba(212,168,83,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 75% 70%, rgba(194,90,74,0.06) 0%, transparent 60%);
+  }
+
+  .card {
+    max-width: 520px;
+    width: 100%;
+    background: var(--warm-cream);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 48px 40px 40px;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(44,28,14,0.06), 0 8px 32px rgba(44,28,14,0.08);
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(44,28,14,0.06);
+    border-radius: 2px;
+    pointer-events: none;
+  }
+
+  .vinyl-ring {
+    margin: 0 auto 36px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    animation: spin 20s linear infinite;
+    animation-play-state: paused;
+    cursor: pointer;
+    transition: filter 0.4s ease;
+    background: conic-gradient(
+      from 0deg,
+      #1a1008 0deg 8deg, #23160d 8deg 12deg, #1a1008 12deg 20deg,
+      #23160d 20deg 24deg, #1a1008 24deg 32deg, #23160d 32deg 36deg,
+      #1a1008 36deg 44deg, #23160d 44deg 48deg, #1a1008 48deg 56deg,
+      #23160d 56deg 60deg, #1a1008 60deg 68deg, #23160d 68deg 72deg,
+      #1a1008 72deg 80deg, #23160d 80deg 84deg, #1a1008 84deg 92deg,
+      #23160d 92deg 96deg, #1a1008 96deg 104deg, #23160d 104deg 108deg,
+      #1a1008 108deg 116deg, #23160d 116deg 120deg, #1a1008 120deg 128deg,
+      #23160d 128deg 132deg, #1a1008 132deg 140deg, #23160d 140deg 144deg,
+      #1a1008 144deg 152deg, #23160d 152deg 156deg, #1a1008 156deg 164deg,
+      #23160d 164deg 168deg, #1a1008 168deg 176deg, #23160d 176deg 180deg,
+      #1a1008 180deg 188deg, #23160d 188deg 192deg, #1a1008 192deg 200deg,
+      #23160d 200deg 204deg, #1a1008 204deg 212deg, #23160d 212deg 216deg,
+      #1a1008 216deg 224deg, #23160d 224deg 228deg, #1a1008 228deg 236deg,
+      #23160d 236deg 240deg, #1a1008 240deg 248deg, #23160d 248deg 252deg,
+      #1a1008 252deg 260deg, #23160d 260deg 264deg, #1a1008 264deg 272deg,
+      #23160d 272deg 276deg, #1a1008 276deg 284deg, #23160d 284deg 288deg,
+      #1a1008 288deg 296deg, #23160d 296deg 300deg, #1a1008 300deg 308deg,
+      #23160d 308deg 312deg, #1a1008 312deg 320deg, #23160d 320deg 324deg,
+      #1a1008 324deg 332deg, #23160d 332deg 336deg, #1a1008 336deg 344deg,
+      #23160d 344deg 348deg, #1a1008 348deg 356deg, #23160d 356deg 360deg
+    );
+    position: relative;
+    opacity: 0.85;
+  }
+
+  .vinyl-ring::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--rose);
+    box-shadow: 0 0 0 4px var(--warm-cream), 0 0 0 6px var(--amber);
+  }  }
+
+  .vinyl-ring:hover {
+    animation-play-state: running;
+    filter: brightness(1.1);
+  }
+
+  .vinyl-ring.playing {
+    animation-play-state: running;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .vinyl-hint {
+    text-align: center;
+    font-size: 0.65rem;
+    color: var(--dust);
+    opacity: 0.4;
+    margin-top: -28px;
+    margin-bottom: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    letter-spacing: 0.08em;
+    transition: opacity 0.4s ease;
+  }
+
+  .vinyl-ring:hover + .vinyl-hint {
+    opacity: 0;
+  }
+
+  .share-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0;
+  }
+
+  .wechat-tip {
+    text-align: center;
+    font-size: 0.72rem;
+    color: var(--dust);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    letter-spacing: 0.02em;
+    margin-top: 6px;
+    opacity: 0.6;
+  }
+
+  .label-tag {
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dust);
+    margin-bottom: 8px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 2.25rem;
+    font-weight: normal;
+    font-style: italic;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  .artist {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--dust);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    letter-spacing: 0.04em;
+    margin-bottom: 36px;
+  }
+
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: var(--amber);
+    margin: 0 auto 32px;
+    opacity: 0.5;
+  }
+
+  .lyric-block {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .lyric-block p {
+    font-size: 1.05rem;
+    line-height: 2;
+    color: var(--ink);
+    font-style: italic;
+    opacity: 0.85;
+  }
+
+  .lyric-block p em {
+    font-style: normal;
+    color: var(--rose);
+  }
+
+  .meta-row {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    font-size: 0.8rem;
+    color: var(--dust);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    letter-spacing: 0.03em;
+    margin-bottom: 36px;
+  }
+
+  .stream-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  .stream-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background: transparent;
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .stream-btn:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+
+  .stream-btn svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+
+
+  .share-btn:hover {
+    background: var(--amber);
+  }
+
+
+
+
+
+
+  .player-frame {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+
+  .player-frame iframe {
+    border-radius: 3px;
+  }
+
+  .player-controls { width: 100%; max-width: 300px; margin: 0 auto; }
+  .progress-track { width: 100%; height: 4px; background: var(--border); border-radius: 2px; cursor: pointer; position: relative; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--amber); border-radius: 2px; width: 0%; transition: width 0.15s linear; }
+  .time-display { display: flex; justify-content: space-between; width: 100%; max-width: 300px; margin: 6px auto 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; font-size: 0.7rem; color: var(--dust); letter-spacing: 0.04em; opacity: 0.6; }
+  .time-sep { opacity: 0.4; }
+
+  .audio-player-section { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .player-controls { width: 100%; max-width: 300px; margin: 0 auto; }
+  .progress-track { width: 100%; height: 4px; background: var(--border); border-radius: 2px; cursor: pointer; position: relative; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--amber); border-radius: 2px; width: 0%; transition: width 0.15s linear; }
+  .time-display { display: flex; justify-content: space-between; width: 100%; max-width: 300px; margin: 6px auto 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; font-size: 0.7rem; color: var(--dust); letter-spacing: 0.04em; opacity: 0.6; }
+  .time-sep { opacity: 0.4; }
+  .footer-note {
+    text-align: center;
+    margin-top: 36px;
+    font-size: 0.7rem;
+    color: var(--dust);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    letter-spacing: 0.06em;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 480px) {
+    .card { padding: 32px 24px 28px; }
+    h1 { font-size: 1.75rem; }
+    .lyric-block p { font-size: 0.95rem; }
+    .vinyl-ring { width: 110px; height: 110px; margin-bottom: 28px; }
+    .vinyl-ring::after { width: 26px; height: 26px; box-shadow: 0 0 0 3px var(--warm-cream), 0 0 0 5px var(--amber); }
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="vinyl-ring" id="vinylRing" aria-hidden="true" title="��һ�£��úڽ�ת����"></div><div class="vinyl-hint">TOUCH TO PLAY</div>
+  <div class="label-tag">The Miseducation of Lauryn Hill &middot; 1998</div>
+  <h1>Ex-Factor</h1>
+  <div class="artist">Lauryn Hill</div>
+
+  <div class="divider"></div>
+
+  <div class="lyric-block">
+    <p>
+      It could all be <em>so simple</em><br>
+      But you&rsquo;d rather make it hard<br>
+      Loving you is like a battle<br>
+      And we both end up with scars
+    </p>
+  </div>
+
+  <div class="meta-row">
+    <span>R&amp;B / Neo-Soul</span>
+    <span>5:26</span>
+  </div>
+
+  <div class="share-area">
+    <div class="share-area">
+</div>
+    <div class="audio-player-section">
+
+    <audio id="audioEl" preload="auto" src="https://music.163.com/song/media/outer/url?id=2926295.mp3"></audio>
+
+    <div class="player-controls">
+      <div class="progress-track" id="progressTrack">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="time-display">
+        <span id="currentTime">0:00</span>
+        <span class="time-sep">/</span>
+        <span id="totalTime">5:26</span>
+      </div>
+    </div>
+
+  </div>
+<div class="footer-note">TURN IT UP &amp; LET IT BREATHE</div>
+</div>
+
+<script>
+  const vinylRing = document.getElementById('vinylRing');
+  vinylRing.addEventListener('click', () => {
+    vinylRing.classList.toggle('playing');
+    const hint = vinylRing.nextElementSibling;
+    if (hint) hint.style.opacity = vinylRing.classList.contains('playing') ? '0' : '';
+  });
+
+  const audio = document.getElementById('audioEl');
+  const progressFill = document.getElementById('progressFill');
+  const progressTrack = document.getElementById('progressTrack');
+  const currentTimeEl = document.getElementById('currentTime');
+  const totalTimeEl = document.getElementById('totalTime');
+
+  let isPlaying = false;
+
+  function formatTime(s) {
+    const m = Math.floor(s / 60);
+    const sec = Math.floor(s % 60);
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+
+  vinylRing.addEventListener('click', function() {
+    if (isPlaying) {
+      audio.pause();
+    } else {
+      audio.play().catch(function(){});
+    }
+  });
+
+  audio.addEventListener('play', function() {
+    isPlaying = true;
+    vinylRing.classList.add('playing');
+  });
+
+  audio.addEventListener('pause', function() {
+    isPlaying = false;
+    vinylRing.classList.remove('playing');
+  });
+
+  audio.addEventListener('timeupdate', function() {
+    if (audio.duration) {
+      var pct = (audio.currentTime / audio.duration) * 100;
+      progressFill.style.width = pct + '%';
+      currentTimeEl.textContent = formatTime(audio.currentTime);
+    }
+  });
+
+  audio.addEventListener('loadedmetadata', function() {
+    totalTimeEl.textContent = formatTime(audio.duration);
+  });
+
+  audio.addEventListener('ended', function() {
+    vinylRing.classList.remove('playing');
+    isPlaying = false;
+    progressFill.style.width = '0%';
+    currentTimeEl.textContent = '0:00';
+  });
+
+  progressTrack.addEventListener('click', function(e) {
+    if (!audio.duration) return;
+    var rect = progressTrack.getBoundingClientRect();
+    var pct = (e.clientX - rect.left) / rect.width;
+    audio.currentTime = pct * audio.duration;
+  });
+</script>
+</body>
+</html>
